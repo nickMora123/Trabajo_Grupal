@@ -1,0 +1,68 @@
+<div>
+    <p-toast></p-toast>
+</div>
+<div class="flex align-items-center justify-content-end bg-cyan-100">
+    <a 
+      pButton 
+      pRipple
+      label="Crear coche" 
+      icon="pi pi-user-plus"
+      class="bg-cyan-600"
+      [routerLink]="['/addcoche']">
+    </a>
+
+
+</div>
+
+<p-table [value]="coche">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>matricula</th>
+            <th>codigo</th>
+            <th>modelo</th>
+            <th>color</th>
+	        <th>pvc</th>
+            <th>estado</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-coche>
+        <tr>
+            <td>{{coche.id}}</td>
+            <td>{{coche.matricula}}</td>
+            <td>{{coche.codigo}}</td>
+            <td>{{coche.modelo}}</td>
+            <td>{{coche.color}}</td>
+            <td>{{coche.pvc}}</td>
+            <td>{{coche.estado}}</td>
+            <td>
+                <button 
+                    pButton 
+                    pRipple
+                    icon="pi pi-print"
+                    class="bg-cyan-600  mr-1"
+                    (click)="imprimir(coche.id)">
+                </button>
+
+                <a 
+                pButton 
+                pRipple
+                icon="pi pi-sync"
+                class="bg-cyan-600  mr-1"
+                [routerLink]="['/coche/edit', coche.id]">
+                </a>
+
+                <button 
+                type="button"
+                 pButton 
+                 pRipple
+                 icon="pi pi-eraser"
+                 class="bg-cyan-600  mr-1"
+                 (click)="eliminar(coche.id)">
+                </button>
+
+
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

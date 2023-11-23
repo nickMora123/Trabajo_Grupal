@@ -1,0 +1,58 @@
+<div>
+    <p-toast></p-toast>
+</div>
+<div class="flex align-items-center justify-content-end bg-cyan-100">
+    <a 
+      pButton 
+      pRipple
+      label="Crear Clientes" 
+      icon="pi pi-user-plus"
+      class="bg-cyan-600"
+      [routerLink]="['/addclientes']">
+    </a>
+</div>
+<div>
+    <p-toast></p-toast>
+</div>
+<p-table [value]="cliente">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Direccion</th>
+            <th>Ciudad</th>
+            <th>Codigo</th>
+            <th>Estado</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cliente>
+        <tr>
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.apellido}}</td>
+            <td>{{cliente.direccion}}</td>
+            <td>{{cliente.ciudad}}</td>
+            <td>{{cliente.codigo}}</td>
+            <td>{{cliente.estado}}</td>
+            <td>
+                <a 
+                pButton 
+                pRipple
+                icon="pi pi-sync"
+                class="bg-cyan-600  mr-1"
+                [routerLink]="['/Cliente/edit/',cliente.id]">
+                </a>
+
+                <button 
+                type="button"
+                 pButton 
+                 pRipple
+                 icon="pi pi-eraser"
+                 class="bg-cyan-600  mr-1"
+                 (click)="eliminar(cliente.id)">
+            </button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
